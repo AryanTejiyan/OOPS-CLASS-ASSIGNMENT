@@ -57,15 +57,27 @@ void raise_request(string bloodGroup,vector <donor*> *alldonors)
 
 void search_bg(string bg,vector <donor*> *alldonors)
 {
+    bool availability=false;
     for(int i=0;i<alldonors->size();i++)
     {
         if(((*alldonors)[i])->bloodgroup==bg)
         {
-            cout<<"Blood is Available!!\n";
+            cout<<"\nBlood is Available!!\n";
+            availability=true;
+        }
+        continue;
+    }
+    for(int i=0;i<alldonors->size();i++)
+    {
+        if(((*alldonors)[i])->bloodgroup==bg)
+        {
             cout<<"Name of donor:"<<((*alldonors)[i])->name<<endl<<"Conatct number:"<<((*alldonors)[i])->mobileNumber<<endl;
         }
     }
-    //cout<<"Blood not available!!\n";
+    if(availability==false)
+    {
+        cout<<"Blood not Available!!\n";
+    }
     return;
 }
 
@@ -117,21 +129,21 @@ int main()
     alldonors->push_back(d1);
     d1= new donor("suresh","121554","b+","fortis","noida");
     alldonors->push_back(d1);
-    d1= new donor("steve","1542","b-","yashodra","noida");
+    d1= new donor("steve","4845542","b-","yashodra","noida");
     alldonors->push_back(d1);
-    d1= new donor("peter","1234","a-","devnandini","noida");
+    d1= new donor("peter","118934","a-","devnandini","noida");
     alldonors->push_back(d1);
-    d1= new donor("alan","1234","ab+","aims","noida");
+    d1= new donor("alan","1284534","ab+","aims","noida");
     alldonors->push_back(d1);
-    d1= new donor("kent","1234","ab-","fortis","delhi");
+    d1= new donor("kent","1234774","ab-","fortis","delhi");
     alldonors->push_back(d1);
-    d1= new donor("raju","1234","o+","aims","mumbai");
+    d1= new donor("raju","183484","o+","aims","mumbai");
     alldonors->push_back(d1);
-    d1= new donor("rick","1234","o-","max","noida");
+    d1= new donor("rick","981552","o-","max","noida");
     alldonors->push_back(d1);
     while(1)
     {
-        cout<<"You are 1.Admin 2.User\nPress 3 to exit"<<endl;
+        cout<<"Press 1 if you are Admin\nPress 2 if you are User\nPress 3 to exit"<<endl;
         cin>>n;
         switch(n)
         {
